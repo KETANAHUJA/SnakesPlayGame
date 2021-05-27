@@ -27,7 +27,7 @@ function init(){
 	food = getRandomFood();
 
 	snake = {
-		init_len:2,
+		init_len:3,
 		color:"blue",
 		colour:"red",
 		cells:[],
