@@ -13,7 +13,7 @@ function init(){
 	pen = canvas.getContext('2d');
 	cs = 55;
 	game_over = false;
-	score = 2;
+	score = 0;
 
 
 
@@ -27,7 +27,7 @@ function init(){
 	food = getRandomFood();
 
 	snake = {
-		init_len:3,
+		init_len:2,
 		color:"blue",
 		colour:"red",
 		cells:[],
