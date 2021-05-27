@@ -17,7 +17,7 @@ function init(){
 
 
 
-	//Crate a Image Object for food
+	//Create a Image Object for food
 	food_img = new Image();
 	food_img.src = "apple.png";
 
@@ -47,8 +47,17 @@ function init(){
 			for(var i=0;i<this.cells.length;i++){
 		    if(i==0)
 		    {
-                pen.fillStyle = this.colour;
+		    	var borderWidth = 5;   
+				var offset = borderWidth * 2;
+
+				pen.beginPath();
+				pen.fillStyle = 'black';
+				pen.fillRect(this.cells[i].x*cs-borderWidth ,this.cells[i].y*cs -borderWidth , cs-3 + offset, cs-3 + offset);
+				pen.fillStyle = this.colour;
 				pen.fillRect(this.cells[i].x*cs,this.cells[i].y*cs,cs-3,cs-3);
+
+                // pen.fillStyle = this.colour;
+				// pen.fillRect(this.cells[i].x*cs,this.cells[i].y*cs,cs-3,cs-3);
             }
             else
             {
