@@ -17,7 +17,7 @@ function init(){
 
 
 
-	//Create a Image Object for food
+	//Crate a Image Object for food
 	food_img = new Image();
 	food_img.src = "apple.png";
 
