@@ -14,6 +14,7 @@ function init(){
 	cs = 55;
 	game_over = false;
 	score = 0;
+	gamePaused = false;
 
 
 
@@ -111,40 +112,47 @@ function init(){
 
 			
 			var nextX,nextY;
-			var bool_x =false;
-			var bool_y =false;
-			var bool_xx =false;
-			var bool_yy =false;
+			// var bool_x =false;
+			// var bool_y =false;
+			// var bool_xx =false;
+			// var bool_yy =false;
 
 
 			if(this.direction=="right"){
-				nextX = headX + 1/2;
+				nextX = headX + 1;
 				nextY = headY;
-				bool_x=true;
+				// bool_x=true;
 			}
 			else if(this.direction=="left"){
-				nextX = headX - 1/2;
+				nextX = headX - 1;
 				nextY = headY;
-				bool_xx=true;
+				// bool_xx=true;
 			}
 			else if(this.direction=="down"){
 				nextX = headX;
-				nextY = headY + 1/2;
-				bool_y=true;
+				nextY = headY + 1;
+				// bool_y=true;
 			}
-			else{
+			else if(this.direction=="up"){
 				nextX = headX;
-				nextY = headY - 1/2;
-				bool_yy=true;
+				nextY = headY - 1;
+				// bool_yy=true;
 			}
-			if(bool_x)
-			this.cells.unshift({x: nextX+1/2,y:nextY});
-		    else if(bool_xx)
-			this.cells.unshift({x: nextX-1/2,y:nextY});
-			else if(bool_y)
-			this.cells.unshift({x: nextX,y:nextY+1/2});
-			else if(bool_yy)
-			this.cells.unshift({x: nextX,y:nextY-1/2});
+			// else if(this.direction=="pause"){
+			// 	nextX = headX;
+			// 	nextY = headY;
+			// 	// bool_yy=false;
+			// 	// bool_xx=false;
+			// }
+			this.cells.unshift({x: nextX,y:nextY});
+			// if(bool_x)
+			// this.cells.unshift({x: nextX+1/2,y:nextY});
+		 	//    else if(bool_xx)
+			// this.cells.unshift({x: nextX-1/2,y:nextY});
+			// else if(bool_y)
+			// this.cells.unshift({x: nextX,y:nextY+1/2});
+			// else if(bool_yy)
+			// this.cells.unshift({x: nextX,y:nextY-1/2});
 
 			/*Write a Logic that prevents snake from going out*/
 			var last_x = Math.round(W/cs);
@@ -165,7 +173,10 @@ function init(){
 		snake.isStart=true;
 		movesound.play();
 		//Conditional Statments
-		if(e.key=="ArrowRight"){
+		if(e.key=="p"){
+			snake.direction="pause";
+		}
+		else if(e.key=="ArrowRight"){
 			snake.direction = "right";
 		}
 		else if(e.key=="ArrowLeft"){
@@ -174,9 +185,10 @@ function init(){
 		else if(e.key=="ArrowDown"){
 			snake.direction = "down";
 		}
-		else{
+		else if(e.key=="ArrowUp"){
 			snake.direction = "up";
 		}
+	    
 		console.log(snake.direction);
 	}
 
@@ -197,7 +209,7 @@ function draw(){
 	pen.fillStyle = food.color;
 	pen.drawImage(food_img,food.x*cs,food.y*cs,cs,cs);
 
-	pen.drawImage(trophy,18,20,cs,cs);
+	pen.drawImage(trophy,18,20,cs+10,cs);
 	pen.fillStyle = "blue";
 	pen.font = "20px Roboto"
 	pen.fillText(score,50,50);
@@ -209,24 +221,16 @@ function draw(){
 
 function update(){
 	//console.log("In Update");
+	document.addEventListener("keydown",(e)=>{
+		if(e.key=="KeyP")
+		gamePaused=true;
+	})
 	snake.updateSnake(); 
 }
 
-function getRandomFood(){
-
-	var foodX = Math.round(Math.random()*(W-cs)/cs);
-	var foodY = Math.round(Math.random()*(H-cs)/cs);
-
-	var food = {
-		x:foodX,
-		y:foodY,
-		color:"red",
-	}
-	return food
-
-}
 
 function gameloop(){
+	// if (gamePaused) return;
 	if(game_over==true){
 		musicsound.pause();
 		gameoversound.play();
@@ -235,7 +239,9 @@ function gameloop(){
 		return;
 	}
 	draw();
-	update();
+	if(snake.direction=="pause"){}
+	else{
+	update();}
 	snake.checkCollision();
 }
 
@@ -252,13 +258,7 @@ else
 
 init();
 
-document.addEventListener('keydown',snake.startNow);
-
-
-
-
-
-var f = setInterval(gameloop,100);
+// document.addEventListener('keydown',snake.startNow);
 
 
 
@@ -270,3 +270,53 @@ var f = setInterval(gameloop,100);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//hard 75
+
+// medium 100
+
+// easy 125
+
+
+var f = setInterval(gameloop,120);
+
+
+function getRandomFood(){
+
+	var foodX = Math.round(Math.random()*(W-cs)/cs);
+	var foodY = Math.round(Math.random()*(H-cs)/cs);
+
+	var food = {
+		x:foodX,
+		y:foodY,
+		color:"red",
+	}
+	return food
+
+}
