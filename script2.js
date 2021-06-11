@@ -214,6 +214,7 @@ function draw(){
 	pen.font = "20px Roboto"
 	pen.fillText(score,50,50);
     pen.fillText("Hi-Score : ", 80, 50);
+    //  pen.fillText("Press P to pause ", 960, 20);
 	pen.fillText(hiscoreval,168,50);
 
 	

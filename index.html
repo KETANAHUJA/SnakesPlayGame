@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SnakesGame</title>
-	<style>
-			#mycanvas
-			{
-                                height:89vh;
-                                width:95vw;
-				
-				background-image: url('bg.png');
-				border:23.4px solid black;
-			}
-			h1{
-				text-align: center;
-			}
-	</style>
-</head>
-<body>
-		<div id="hiscoreBox"></div>
-		<canvas id="mycanvas"> </canvas>
-		<script src="script2.js"></script>
-	
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnakesGame</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background-image: url("snake.png");
+      }
+      button a {
+        text-decoration: none;
+        color: black;
+      }
+      .container {
+        position: relative;
+        width: 50%;
+      }
+
+      /* Make the image responsive */
+      .container img {
+        width: 700px;
+        height: 530px;
+      }
+
+      /* Style the button and place it in the middle of the container/image */
+      .container .btn {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: aqua;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: 1px solid red;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .container .btn:hover {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="conta-iner">
+		<img src="snake.png" alt="Snake Image" height="560px" width="1150px">
+
+		<button class="btn btn-lg"><a href="index-2.html">Play Here</a></button>
+
+	</div> -->
+    <div class="container">
+      <h3>Use Arrow Keys to Move Snake and Press "p" to pause</h1>
+      <img src="snake.png" alt="snake" />
+      <button class="btn"><a href="index-2.html">Play-Here</a></button>
+    </div>
+  </body>
 </html>
