@@ -30,10 +30,38 @@
       }
 
       /* Style the button and place it in the middle of the container/image */
-      .container .btn {
+      .container .btn1 {
+        position: absolute;
+        top: 60%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: aqua;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: 1px solid red;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .container .btn2 {
         position: absolute;
         top: 60%;
         left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: aqua;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: 1px solid red;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .container .btn3 {
+        position: absolute;
+        top: 60%;
+        left: 80%;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         background-color: aqua;
@@ -60,7 +88,10 @@
     <div class="container">
       <h3>Use Arrow Keys to Move Snake and Press "p" to pause</h1>
       <img src="snake.png" alt="snake" />
-      <button class="btn"><a href="index-2.html">Play-Here</a></button>
+      <button class="btn1"><a href="easy.html">Easy-Level</a></button>
+      <button class="btn2"><a href="medium.html">Medium-Level</a></button>
+      <button class="btn3"><a href="hard.html">Hard-Level</a></button>
+      
     </div>
   </body>
 </html>

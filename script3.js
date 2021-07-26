@@ -318,7 +318,7 @@ init();
 // easy 125
 
 
-var f = setInterval(gameloop,105);
+var f = setInterval(gameloop,85);
 
 
 function getRandomFood(){
